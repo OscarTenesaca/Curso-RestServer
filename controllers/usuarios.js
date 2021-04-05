@@ -2,7 +2,7 @@ const { response , request} = require('express');
 
 const usuariosGet=(req=request, res = response) => {
 
-    const { q, nombre= 'no name',apkey} = req.query;
+    const { q, nombre= ' ',apkey} = req.query;
 
     res.json({
         id: 'ok',
@@ -53,9 +53,6 @@ const usuariosDelete=(req, res = response) => {
         msg: 'api delete- cpntrolador'
     });
 }
-
-
-
 
 
 module.exports = {
