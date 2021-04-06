@@ -1,5 +1,6 @@
 const express = require('express')
-const cors = require('cors')
+const cors = require('cors');
+const { dbConnection } = require('../database/config');
 
 
 class Server {
@@ -9,10 +10,20 @@ class Server {
         this.port = process.env.PORT;
         this.usuariosPath= '/api/usuarios'
 
+        // connectara la base de atos
+        this.conectarDB();
+
+
         // midelwares
         this.middelwares();
         // rutas de mi app
         this.routes();
+
+    }
+
+    async conectarDB(){
+        //  una o varia conexiones 
+        await dbConnection();
 
     }
 
